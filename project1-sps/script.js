@@ -7,14 +7,35 @@ var randomPlay = function () {
   return randomInteger;
 };
 
+// list of options
+var gameList = ["Scissors", "Paper", "Stone"];
+
+//emoji generator
+var generateEmoji = function (option) {
+  if (option == "Scissors") {
+    return "✂️";
+  } else if (option == "Paper") {
+    return "📃";
+  } else if (option == "Stone") {
+    return "💎";
+  }
+};
+
 // set global variables to record the number of wins and turns.
 var userWins = 0;
 var compWins = 0;
 var draws = 0;
 var turns = 0;
 var userName = "";
-// Store the options in array
-var gameList = ["Scissors", "Paper", "Stone"];
+// Store the user and computer's options in array
+var userOption = [
+  "Scissors",
+  "Paper",
+  "Stone",
+  "Reversed Scissors",
+  "Reversed Paper",
+  "Reversed Stone"
+];
 //set var to store game status
 var gameStatus = "username";
 var main = function (input) {
@@ -29,10 +50,12 @@ var main = function (input) {
     if (input == "AI") {
       input = gameList[randomPlay()];
     }
+    var emojiOne = generateEmoji(input);
+    var emojiTwo = generateEmoji(compPlay);
     // setup basic message to output
-    var message = `${input} versus ${compPlay}!`;
+    var message = `${input} ${emojiOne} versus ${compPlay} ${emojiTwo}!`;
     //validations -> check if the user wins
-    if (gameList.indexOf(input) == -1) {
+    if (userOption.indexOf(input) == -1) {
       return "Error input! Please try again with Scissors, Paper or Stone~";
     } else {
       //update the number of gameplays
@@ -41,7 +64,10 @@ var main = function (input) {
       if (
         (input == "Scissors" && compPlay == "Paper") ||
         (input == "Paper" && compPlay == "Stone") ||
-        (input == "Stone" && compPlay == "Scissors")
+        (input == "Stone" && compPlay == "Scissors") ||
+        (input == "Reversed Scissors" && compPlay == "Stone") ||
+        (input == "Reversed Paper" && compPlay == "Scissors") ||
+        (input == "Reversed Stone" && compPlay == "Paper")
       ) {
         message += " You Win!";
         userWins += 1;
