@@ -12,11 +12,11 @@ var gameList = ["Scissors", "Paper", "Stone"];
 
 //emoji generator
 var generateEmoji = function (option) {
-  if (option == "Scissors") {
+  if (option == "Scissors" || option == "Reversed Scissors") {
     return "✂️";
-  } else if (option == "Paper") {
+  } else if (option == "Paper" || option == "Reversed Paper") {
     return "📃";
-  } else if (option == "Stone") {
+  } else if (option == "Stone" || option == "Reversed Stone") {
     return "💎";
   }
 };
@@ -82,7 +82,7 @@ var main = function (input) {
         compWins += 1;
       }
     }
-    // add winning records to the message above
+    // add username and winning records to the message above
     var gamePlayer = ` Player: ${userName} `;
     var gameStats = `Updated until Round ${turns}: ${userWins} vs ${compWins}, draws: ${draws}`;
     return message + "<br>" + gamePlayer + "<br>" + gameStats;
