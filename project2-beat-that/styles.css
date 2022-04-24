@@ -57,10 +57,14 @@ nav ul li a {
 }
 
 .container {
-  background-color: #ffffff;
+  background-color: lightblue;
   margin: 40px auto;
   max-width: 800px;
   padding: 38px 31px;
+  /* background-color: #ffffff;
+  margin: 40px auto;
+  max-width: 800px;
+  padding: 38px 31px; */
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
