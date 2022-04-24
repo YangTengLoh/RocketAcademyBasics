@@ -9,10 +9,11 @@
 
 body {
   margin-top: 0;
-  font-family: sans-serif;
+  font-family: cursive;
   margin-left: 30px;
   margin-right: 30px;
-  background-color: #e0e0e0;
+
+  background-image: url("https://w0.peakpx.com/wallpaper/724/407/HD-wallpaper-cute-star-background-childish-feminine-vintage-yellow.jpg");
 }
 
 nav {
@@ -54,15 +55,17 @@ nav ul li a {
 
 #header {
   text-align: center;
+  font-family: "Lucida Handwriting", cursive;
 }
 
 .container {
-  background-color: #ffffff;
+  background-color: #a599f0;
   margin: 40px auto;
   max-width: 800px;
   padding: 38px 31px;
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(22, 3, 3, 0.1) 0px 4px 12px;
+  border: 1px solid rgb(10, 5, 5);
 }
 
 input {
@@ -74,6 +77,7 @@ input {
 }
 
 button {
+  font-family: cursive;
   font-size: 21px;
   line-height: 33px;
   margin: 0 0 23px 0;
@@ -81,10 +85,12 @@ button {
 }
 
 .output-div {
-  background-color: lightgrey;
+  background-color: #c6b3fc;
   margin: 20px auto;
   padding: 20px;
   width: 100%;
+  border: 1px solid rgb(10, 5, 5);
+  font-size: 18px;
 }
 
 hr {
