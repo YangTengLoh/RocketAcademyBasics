@@ -60,19 +60,23 @@ The <html> element is known as the root element of a HTML page. All other elemen
       </ul>
     </nav>
     <!-- The <h1> element defines a large heading. There are 6 pre-set header elements, <h1> to <h6> -->
-    <h1 id="header">🚀 Basics Project 3: Blackjack 🚀</h1>
+    <h1 id="header">🚀 Basics Project 3 🚀<br> BlackJack</h1>
     <!-- The <div> tag defines a division or a section in an HTML document, and is commonly use as a "container" for nested HTML elements. -->
     <div class="container">
       <!-- The <p> tag defines a paragraph element. -->
-      <p>Input:</p>
+      <p>Duel with the computer and get closer to 21 to win! <br>You have 100 chips to play the game. Good Luck </p>
       <!-- The self-closing <input /> tag represents a field for a user to enter input. -->
       <input id="input-field" />
       <!-- The self-closing <br /> tag represents a line break - a line's worth of spacing before dispalying the next element. -->
       <br />
       <!-- The <button> tag represents.. you guessed it! a button. -->
       <button id="submit-button">Submit</button>
+      <button id="hit-button">Hit</button>
+      <button id="stand-button">Stand</button>
       <p>Output:</p>
-      <div class="output-div" id="output-div"></div>
+      <div class="output-div" id="output-div">
+        Welcome to BLACK JACK! Input your bet to get started!
+      
     </div>
     <!-- Everything below this is incorporating JavaScript programming logic into the webpage. -->
     <!-- The script tag encloses JavaScript syntax for the browser to interpret programtically -->
@@ -82,6 +86,8 @@ The <html> element is known as the root element of a HTML page. All other elemen
     <script>
       // Declare and define a variable that represents the Submit Button
       var button = document.querySelector("#submit-button");
+      var hitButton = document.querySelector("#hit-button");
+      var standButton = document.querySelector("#stand-button");
       // When the submit button is clicked, access the text entered by the user in the input field
       // And pass it as an input parameter to the main function as defined in script.js
       button.addEventListener("click", function () {
@@ -89,6 +95,30 @@ The <html> element is known as the root element of a HTML page. All other elemen
         var input = document.querySelector("#input-field");
         // Store the output of main() in a new variable
         var result = main(input.value);
+
+        // Display result in output element
+        var output = document.querySelector("#output-div");
+        output.innerHTML = result;
+
+        // Reset input value
+        input.value = "";
+      });
+      hitButton.addEventListener("click", function () {
+        // Set result to input value
+        // Store the output of main() in a new variable
+        var result = main("H");
+
+        // Display result in output element
+        var output = document.querySelector("#output-div");
+        output.innerHTML = result;
+
+        // Reset input value
+        input.value = "";
+      });
+      standButton.addEventListener("click", function () {
+        // Set result to input value
+        // Store the output of main() in a new variable
+        var result = main("S");
 
         // Display result in output element
         var output = document.querySelector("#output-div");
