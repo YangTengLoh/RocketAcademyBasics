@@ -114,8 +114,9 @@ var trackComp = 0;
 var main = function (input) {
   var cardDeck = makeDeck();
   var shuffledDeck = shuffleCards(cardDeck);
-
+  //betting period
   if (gameMode == "betting") {
+    //must bet the amount where it  is less than your remaining points
     if (input > gamingPoints) {
       message = "You have exceeded the points you have, please try again!";
       return message;
@@ -124,7 +125,7 @@ var main = function (input) {
       gameMode = "deal cards";
       message = `You have bet ${bet} for this round, good luck! Click Submit to start the game.`;
       return message;
-    }
+    } //deal cards
   } else if (gameMode == "deal cards") {
     playerCards = [];
     compCards = [];
@@ -134,6 +135,7 @@ var main = function (input) {
     compSum = 0;
     trackPlayer = 0;
     trackComp = 0;
+    //draw cards for player and comp
     for (var i = 0; i < 2; i++) {
       var playerTempCard = shuffledDeck.pop();
       var compTempCard = shuffledDeck.pop();
@@ -164,7 +166,9 @@ var main = function (input) {
       } of ${generateEmoji(compCards[0])}<br>Hidden Card<br>` +
       "<br>Hit (H) or Stand (S)?";
     return message;
+    //Hit or Stand
   } else if (gameMode == "Hit and Stand") {
+    //Hit
     if (input == "H") {
       var addCard = shuffledDeck.pop();
       playerCards.push(addCard);
@@ -186,6 +190,7 @@ var main = function (input) {
         )}.<br>Current points: ${playerSum} <br>Hit (H) or Stand (S)?<br>` +
         imageTwo;
       return message;
+      //Stand and calculation of points
     } else if (input == "S") {
       if (compCards[0].rank == 1 && compCards[1].rank == 1) {
         compSum = 21;
@@ -218,12 +223,12 @@ var main = function (input) {
             }
           }
         }
-      }
+      } //player ace ace
       if (playerCards[0].rank == 1 && playerCards[1].rank == 1) {
         playerSum = 21;
       }
       message = `Player😎: <br> ${playerCardsDrawn} <br> Computer💻: <br> ${compCardsDrawn}<br>🔥${playerSum} vs ${compSum}🔥<br>`;
-
+      //output the result
       if (playerSum == compSum) {
         message += "It's a tie!✌";
       } else if (playerSum == 21) {
